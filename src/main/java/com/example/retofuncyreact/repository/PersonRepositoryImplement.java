@@ -38,7 +38,7 @@ public class PersonRepositoryImplement implements IPersonRepository{
     }
 
     @Override
-    public Mono<Person> regist(Person p) {
+    public Mono<Person> register(Person p) {
         log.info(p.toString());
         return Mono.just(p);
     }

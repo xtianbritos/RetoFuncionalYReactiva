@@ -23,8 +23,8 @@ public class PersonController {
     }
 
     @PostMapping
-    public Mono<Person> regist(@RequestBody Person p){
-        return personRepository.regist(p);
+    public Mono<Person> register(@RequestBody Person p){
+        return personRepository.register(p);
     }
 
     @PutMapping

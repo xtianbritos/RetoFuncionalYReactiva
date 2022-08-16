@@ -8,6 +8,6 @@ public interface IPersonRepository {
     Flux<Person> list();
     Mono<Person> listById(Integer id);
     Mono<Void> delete(Integer id);
-    Mono<Person> regist(Person p);
+    Mono<Person> register(Person p);
     Mono<Person> update(Person p);
 }
