@@ -26,4 +26,19 @@ public class PersonController {
     public Mono<Person> regist(@RequestBody Person p){
         return personRepository.regist(p);
     }
+
+    @PutMapping
+    public Mono<Person> update(@RequestBody Person p){
+        return personRepository.update(p);
+    }
+
+    @GetMapping("/{id}")
+    public Mono<Person> listById(@PathVariable("id") Integer id){
+        return personRepository.listById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<Void> delete(@PathVariable("id") Integer id){
+        personRepository.delete(id);
+    }
 }
