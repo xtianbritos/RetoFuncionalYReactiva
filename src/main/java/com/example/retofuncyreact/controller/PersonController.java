@@ -39,6 +39,7 @@ public class PersonController {
 
     @DeleteMapping("/{id}")
     public Mono<Void> delete(@PathVariable("id") Integer id){
-        return personRepository.delete(id);
+        return personRepository.listById(id)
+                .flatMap(person -> personRepository.delete(person.getPersonId()));
     }
 }
