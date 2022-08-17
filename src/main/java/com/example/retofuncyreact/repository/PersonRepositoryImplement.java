@@ -19,17 +19,17 @@ public class PersonRepositoryImplement implements IPersonRepository{
     public Flux<Person> list() {
         List<Person> personList = new ArrayList<>();
 
-        personList.add(new Person(1, "Walter"));
-        personList.add(new Person(2, "Jesse"));
-        personList.add(new Person(3, "Saul"));
-        personList.add(new Person(4, "Mike"));
+        personList.add(new Person(1, "Walter", "White"));
+        personList.add(new Person(2, "Jesse", "Pinkman"));
+        personList.add(new Person(3, "Jimmy", "McGill"));
+        personList.add(new Person(4, "Mike", "Ehrmantraut"));
 
         return Flux.fromIterable(personList);
     }
 
     @Override
     public Mono<Person> listById(Integer id) {
-        return Mono.just(new Person(id, "Kim"));
+        return Mono.just(new Person(id, "Kim", "Wexler"));
     }
 
     @Override

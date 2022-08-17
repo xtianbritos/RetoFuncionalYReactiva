@@ -3,10 +3,12 @@ package com.example.retofuncyreact.model;
 public class Person {
     private Integer personId;
     private String name;
+    private String lastName;
 
-    public Person(Integer personId, String name) {
+    public Person(Integer personId, String name, String lastName) {
         this.personId = personId;
         this.name = name;
+        this.lastName = lastName;
     }
 
     //Getters y Setters
@@ -20,6 +22,10 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public void setName(String name) {
