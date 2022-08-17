@@ -7,6 +7,8 @@ import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Repository
 public class PersonRepositoryImplement implements IPersonRepository{
@@ -25,7 +27,19 @@ public class PersonRepositoryImplement implements IPersonRepository{
 
     @Override
     public Mono<Person> listById(Integer id) {
-        return Mono.just(new Person(id, "Kim", "Wexler"));
+        List<Person> personList = new ArrayList<>();
+
+        personList.add(new Person(1, "Walter", "White"));
+        personList.add(new Person(2, "Jesse", "Pinkman"));
+        personList.add(new Person(3, "Jimmy", "McGill"));
+        personList.add(new Person(4, "Mike", "Ehrmantraut"));
+        personList.add(new Person(5, "Gustavo", "Fring"));
+
+        Person personSearched = personList.stream()
+                .reduce((person, person2) -> person.getPersonId().equals(id)?
+                        person : person2).get();
+
+        return Mono.just(personSearched);
     }
 
     @Override
