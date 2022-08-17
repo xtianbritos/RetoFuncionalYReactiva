@@ -36,8 +36,8 @@ public class PersonRepositoryImplement implements IPersonRepository{
         personList.add(new Person(5, "Gustavo", "Fring"));
 
         Person personSearched = personList.stream()
-                .reduce((person, person2) -> person.getPersonId().equals(id)?
-                        person : person2).get();
+                .filter(person -> person.getPersonId().equals(id))
+                .findAny().get();
 
         return Mono.just(personSearched);
     }
